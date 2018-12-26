@@ -1,6 +1,7 @@
 let itemCount = 0;
 let priceTotal = 0;
 let discont = 0;
+let well = 0;
 
 // добавляем
 $('.add').click(function (){
@@ -14,7 +15,13 @@ $('.add').click(function (){
   $('.cost').css('display', 'inline');
   let cost = parseInt($(this).parent().find('.cost').text()); 
   priceTotal += cost;
-  $('#cost').text("Total: " + priceTotal+ " Руб" );
+  let a =Math.random() * 30 ;
+  discont=Math.ceil(priceTotal * (a /100));
+  well = priceTotal-discont;
+  
+  $('#cost').text("Total: " + well + " Руб" );
+  $('#disc').text("disc: " + Math.floor(a) + " %" );
+  $('#sale').text("sale: " + discont + " Руб" );
 }); 
 
 
@@ -28,10 +35,15 @@ $('.openCloseCart').click(function(){
 $('#emptyCart').click(function() {
   itemCount = 0;
   priceTotal = 0;
+  a=0;
+  well=0;
+  sale=0;
 
   $('#itemCount').css('display', 'none');
   $('#cartItems').text('');
   $('#cost').text("Total: " + priceTotal+ " Руб" );
+  $('#disc').text("disc: " + Math.floor(a) + " %" );
+  $('#sale').text("sale: " + discont + " Руб" );
 }); 
 
 
@@ -45,7 +57,12 @@ $('#shoppingCart').on('click', '.removeItem', function(){
   // удалить стоймость элемента из общей цены
   let cost = parseInt($(this).parent().children('.bar').children('.cost').text());
   priceTotal -= cost;
-  $('#cost').text("Total: " + priceTotal+ " Руб" );
+  let a =Math.random() * 30 ;
+  discont=Math.ceil(priceTotal * (a /100));
+  well = priceTotal-discont;
+  $('#cost').text("Total: " + well+ " Руб" );
+  $('#disc').text("disc: " + Math.floor(a) + " %" );
+  $('#sale').text("sale: " + discont + " Руб" );
 
   if (itemCount == 0) {
     $('#itemCount').css('display', 'none');

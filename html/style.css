@@ -87,7 +87,8 @@
     z-index: 1000;
     width: auto;
     height: auto;
-    overflow: scroll; 
+    overflow: scroll;
+    max-height: 400px; 
     box-sizing: border-box;
     background-color: #3cb371;
     color: #ff0000;
